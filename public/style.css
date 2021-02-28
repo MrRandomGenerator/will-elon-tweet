@@ -1,0 +1,128 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body{
+  background-color: #ff4a1f !important;
+  background-image: url("Background.jpg");
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.4) 100%), url("Background.jpg");
+}
+
+.green{
+  color: rgb(0, 255, 21);
+}
+
+.red{
+  color: red
+}
+
+.yellow{
+  color: yellow;
+}
+
+.comic {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.hide{
+  visibility: hidden;
+}
+
+.show{
+  visibility: visible;
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+  }
+
+#dial {
+  margin-top: 2rem;
+  height: 40rem;
+}
+
+#indicator .needle {
+  margin-left: -14rem;
+  margin-bottom: -7.2rem;
+  width: 10px;
+  height: 13rem;
+  background: #ff4a1f;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  border: 2px black solid;
+  display: inline-block;
+  transform: rotate(90deg);
+}
+
+.moveTop{
+    -webkit-animation: moveUp 7s forwards;
+    transform: rotate(0deg);
+    transform-origin: bottom;
+    margin-left: -20.52rem !important;
+    margin-bottom: -0.7rem !important;
+}
+
+.moveMiddleTop{
+    -webkit-animation: moveMiddleTop 7s forwards;
+    transform: rotate(0deg);
+    transform-origin: bottom;
+    margin-left: -20.52rem !important;
+    margin-bottom: -0.7rem !important;
+}
+
+.moveMiddleBottom{
+    -webkit-animation: moveMiddleBottom 7s forwards;
+    transform: rotate(0deg);
+    transform-origin: bottom;
+    margin-left: -20.52rem !important;
+    margin-bottom: -0.7rem !important;
+}
+
+.moveBottom{
+    -webkit-animation: moveDown 7s forwards;
+    transform: rotate(0deg);
+    transform-origin: bottom;
+    margin-left: -20.52rem !important;
+    margin-bottom: -0.7rem !important;
+}
+
+@-webkit-keyframes moveUp {
+  0% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@-webkit-keyframes moveDown {
+    0% {
+      transform: rotate(90deg);
+    }
+    100% {
+      transform: rotate(135deg);
+    }
+  }
+  
+
+  @-webkit-keyframes moveMiddleTop {
+    0% {
+      transform: rotate(45deg);
+    }
+    100% {
+      transform: rotate(90deg);
+    }
+  }
+  
+@-webkit-keyframes moveMiddleBottom {
+    0% {
+      transform: rotate(135deg);
+    }
+    100% {
+      transform: rotate(90deg);
+    }
+  }

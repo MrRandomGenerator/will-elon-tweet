@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <title>Much Predict!</title>
+  </head>
+  <body class="mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col pt-5">
+          <div class="pt-5 mt-5">
+            <h1 id="res" class="pt-5 mt-5 comic" style="color:white">
+              Elon Crypto Tweet Predictor
+            </h1>
+          </div>
+          <div class="pt-3">
+            <h3 class="comic mb-4" style="color:white">
+              Pick such a date! <br />
+              Not much forward tho.
+            </h3>
+            <form
+              name="dateForm"
+              action="/predictDate"
+              method="get"
+              onsubmit="return required()"
+            >
+              <input
+                type="date"
+                id="date"
+                name="date"
+                class="mb-4"
+                value="01/01/2020"
+              />
+              <br />
+              <input type="submit" value="Predict" />
+            </form>
+          </div>
+          <% if(typeof dateValue !== "undefined"){ %>
+            <h1 class="comic mt-4" style="color:white">Prediction for <%= dateValue %>:</h1>
+            <h2 id="status" class="comic mt-1 hide"></h2>
+          <% } %>
+        </div>
+
+        <div class="col">
+          <div id="indicator">
+            <span class="dial">
+              <img id="dial" src="DogeDial.png" />
+            </span>
+            <span id="needle" class="needle"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% if(typeof prediction !== "undefined"){ %>
+    <script>
+      var prediction = <%= prediction %>;
+      var dv = <%= dateValue %>;
+      switch(prediction){
+        case 0:
+          document.getElementById("needle").classList.add("moveBottom");
+          document.getElementById("status").classList.add("red");
+          document.getElementById("status").innerText = "Less tweet very...";
+          document.getElementById("status").classList.remove("hide");
+          break;
+        case 1:
+          document.getElementById("status").classList.add("yellow");
+          document.getElementById("status").innerText = "Pls much tweet Elon";
+          document.getElementById("status").classList.remove("hide");
+          break;
+        case 2:
+          document.getElementById("needle").classList.add("moveTop");
+          document.getElementById("status").classList.add("green");
+          document.getElementById("status").innerText = "Much tweet!";
+          document.getElementById("status").classList.remove("hide");
+          break;
+        default:
+          break;
+      }
+    </script>
+    <% } %>
+    <script>
+      function required() {
+        var date = document.forms["dateForm"]["date"].value;
+        console.log(date);
+        if (date == "") {
+          alert("Please specify a Date");
+          return false;
+        } else {
+          return true;
+        }
+      }
+    </script>
+  </body>
+
+  <div class="fixed-bottom bg-dark">
+    <div class="text-center p-3 text-light">
+      This site doesn't have any relation with Elon Musk. Also don't take any information on this site as an investing advice.
+      This site is made just for much fun!
+      Made by 
+      <a class="text-light" href="https://www.youtube.com/channel/UCs_a2ClztgYY-hHYI-Qzz8g">Mr. Random Generator.</a>
+    </div>
+  </div>
+
+</html>
